@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "257333404922",
+    "firebase_url": "https://cnc-db-crud-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "cnc-db-crud",
+    "storage_bucket": "cnc-db-crud.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:257333404922:android:d6946bc0106a0068ca5543",
+        "android_client_info": {
+          "package_name": "com.example.cnc_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMnwX-QmV1RB0mgvKqF4wlBveYZ-R9LeY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:257333404922:android:a5332779805b8be5ca5543",
+        "android_client_info": {
+          "package_name": "com.example.cnc_crud"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMnwX-QmV1RB0mgvKqF4wlBveYZ-R9LeY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:257333404922:android:d9341327367b5c75ca5543",
+        "android_client_info": {
+          "package_name": "com.example.untitled5"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMnwX-QmV1RB0mgvKqF4wlBveYZ-R9LeY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,5 +1,4 @@
-import 'dart:ffi';
-
+import 'package:cnc_crud/bar_chart.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
@@ -42,7 +41,6 @@ class _all_machineState extends State<all_machine> {
     _testRef.onValue.listen((event) {
       final dataSnapshot = event.snapshot;
       final machineList = dataSnapshot.value as Map<dynamic, dynamic>;
-      print(event.snapshot.value.runtimeType);
       setState(() {
         machines = machineList.entries
             .map((entry) => Machine.fromJson({
@@ -51,6 +49,7 @@ class _all_machineState extends State<all_machine> {
                 }))
             .toList();
       });
+      print(machines);
     });
     return MaterialApp(
       home: Scaffold(
@@ -145,25 +144,36 @@ class _all_machineState extends State<all_machine> {
     );
   }
 
-  Widget renderMachine(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0), // Padding cho GridView
-      child: GridView.count(
-        crossAxisCount: 2, // Số lượng cột
-        shrinkWrap: true,
-        physics: AlwaysScrollableScrollPhysics(),
-        // Sử dụng physics này để đảm bảo cuộn được
-        children: machines.map((machine) => _buildMachine(context, machine.name,machine.status)).toList())
+  void handleContainerTap(BuildContext context, int machineId) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => barChart(machineId)),
     );
   }
 
-  Widget _buildMachine(BuildContext context, String machineName, bool status) {
+  Widget renderMachine(BuildContext context) {
+    return Padding(
+        padding: const EdgeInsets.all(8.0), // Padding cho GridView
+        child: GridView.count(
+            crossAxisCount: 2, // Số lượng cột
+            shrinkWrap: true,
+            physics: AlwaysScrollableScrollPhysics(),
+            // Sử dụng physics này để đảm bảo cuộn được
+            children: machines
+                .map((machine) => _buildMachine(
+                    context, machine.name, machine.status, machine.id))
+                .toList()));
+  }
+
+  Widget _buildMachine(
+      BuildContext context, String machineName, bool status, int machineId) {
     double containerWidth = MediaQuery.of(context).size.width * 0.4;
     double containerHeight = 180.0; // Đã thay đổi chiều cao
 
     return GestureDetector(
       onTap: () {
         // Thực hiện hành động khi nhấn vào máy ở đây, ví dụ chuyển sang một trang khác
+        return handleContainerTap(context, machineId);
       },
       child: Container(
         margin: EdgeInsets.all(40),
@@ -188,7 +198,7 @@ class _all_machineState extends State<all_machine> {
             ),
             SizedBox(height: 4),
             Text(
-                status ? 'running' : 'stopped',
+              status ? 'running' : 'stopped',
               style: TextStyle(
                 color: Color(0xFF252624),
                 fontSize: 14,

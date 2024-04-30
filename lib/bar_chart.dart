@@ -125,7 +125,7 @@ class BarChartWithSecondaryAxis extends StatelessWidget {
 
   static List<charts.Series<Report, String>> _createSampleData(
       List<Product> list) {
-    final dateDelivery = ["01-01-2024", "02-01-2024"];
+    final dateDelivery = ["01/01/2024", "02/01/2024"];
     List<Report> reportList = [];
 
     for (String date in dateDelivery) {

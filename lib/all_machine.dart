@@ -24,7 +24,6 @@ class _all_machineState extends State<all_machine> {
           future: _fApp,
           builder: (context, snapshot) {
             if (snapshot.hasError) {
-              print(snapshot.data);
               return Text("Conection error");
             } else if (snapshot.hasData) {
               return content();
@@ -49,7 +48,6 @@ class _all_machineState extends State<all_machine> {
                 }))
             .toList();
       });
-      print(machines);
     });
     return MaterialApp(
       home: Scaffold(

@@ -2,11 +2,11 @@ class Product{
   late int _id;
   late String _name;
   late bool _status;
-  late String _updateTime;
+  late String _update;
   late int _machineId;
 
 
-  Product(this._id, this._name, this._status, this._updateTime, this._machineId);
+  Product(this._id, this._name, this._status, this._update, this._machineId);
 
   bool get status => _status;
 
@@ -27,17 +27,17 @@ class Product{
   }
 
 
-  String get updateTime => _updateTime;
+  String get update => _update;
 
-  set updateTime(String value) {
-    _updateTime = value;
+  set update(String value) {
+    _update = value;
   }
 
   Product.fromJson(Map<String, dynamic> json) {
     _id = json['id'];
     _name = json['name'];
     _status = json['status'];
-    _updateTime = json['updateTime'];
+    _update = json['update'];
     _machineId = json['machineId'];
   }
 
@@ -46,8 +46,8 @@ class Product{
     data['id'] = _id;
     data['name'] = _name;
     data['status'] = _status;
-    data['updateTime'] = updateTime;
-    data['machineId'] = machineId;
+    data['update'] = _update;
+    data['machineId'] = _machineId;
     return data;
   }
 
